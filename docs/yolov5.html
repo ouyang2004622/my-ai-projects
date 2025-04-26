@@ -1,117 +1,224 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My AI Projects</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YOLOv5 智能检测系统</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Arial, sans-serif;
       background-color: #f0f2f5;
       margin: 0;
       padding: 0;
     }
 
     header {
-      background-color: #222;
+      background: linear-gradient(135deg, #2c3e50, #3498db);
       color: white;
-      padding: 20px;
+      padding: 2rem;
       text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     .container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 20px;
-      padding: 40px;
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .card {
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s;
       overflow: hidden;
       display: flex;
       flex-direction: column;
     }
 
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
+    .card:hover {
+      transform: translateY(-5px);
     }
 
     .card-body {
-      padding: 20px;
+      padding: 1.5rem;
       flex-grow: 1;
     }
 
     .card-title {
-      font-size: 20px;
-      font-weight: bold;
-      margin: 0 0 10px;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #2c3e50;
+      margin: 0 0 1rem;
     }
 
     .card-description {
-      font-size: 14px;
-      color: #555;
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.6;
     }
 
-    .card-footer {
-      padding: 20px;
-      border-top: 1px solid #eee;
-      text-align: right;
+    .card-img-container {
+      position: relative;
+      padding-top: 56.25%; /* 16:9 比例 */
+      overflow: hidden;
     }
 
-    .card-footer a {
-      background-color: #007bff;
+    .card-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transform: scale(0.5); /* 图片缩小一半 */
+      transform-origin: center;
+    }
+
+    .feature-list {
+      padding: 0;
+      margin: 1rem 0;
+      list-style-type: none;
+    }
+
+    .feature-list li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .source-section {
+      text-align: center;
+      padding: 3rem 0;
+      background: #f8f9fa;
+      margin-top: 2rem;
+    }
+
+    .source-link {
+      display: inline-block;
+      background: #3498db;
       color: white;
-      padding: 10px 15px;
-      border-radius: 5px;
+      padding: 1rem 2rem;
+      border-radius: 30px;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
-    .card-footer a:hover {
-      background-color: #0056b3;
+    .source-link:hover {
+      background: #2980b9;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .source-link:active {
+      transform: translateY(0);
     }
   </style>
 </head>
 
 <body>
   <header>
-    <h1>My AI Projects</h1>
+    <h1>YOLOv5 智能检测系统</h1>
+    <p>基于 PyTorch 和 Qt 的多功能目标检测平台</p>
   </header>
 
   <div class="container">
-    <!-- Project 1 -->
     <div class="card">
-      <img src="path/to/project1-image.jpg" alt="YOLOv5 Real-time Detection">
       <div class="card-body">
-        <div class="card-title">YOLOv5 实时目标检测</div>
-        <div class="card-description">
-          本项目使用 PyTorch 和 YOLOv5 实现对图片、视频和摄像头的实时目标检测，适用于多种场景如安防、监控等。
-        </div>
+        <div class="card-title">🖼️ 图像检测功能</div>
+        <ul class="feature-list">
+          <li>display_detect_image()：选择并显示原始图像</li>
+          <li>detect_image()：模型推理与结果可视化</li>
+          <li>支持 JPG/PNG 格式</li>
+        </ul>
       </div>
-      <div class="card-footer">
-        <a href="https://github.com/你的用户名/your-yolov5-project">查看源码</a>
+      <div class="card-img-container">
+        <img class="card-img" src="assets/image-detect.png" alt="图像检测">
       </div>
     </div>
 
-    <!-- Project 2 -->
     <div class="card">
-      <img src="path/to/project2-image.jpg" alt="ResNet50 Fake Image Classifier">
       <div class="card-body">
-        <div class="card-title">ResNet50 AI 图像鉴别</div>
-        <div class="card-description">
-          本项目基于 ResNet50 模型区分真实图像与 AI 生成图像，包含模型训练、推理及结果可视化模块，适用于图像溯源等领域。
-        </div>
+        <div class="card-title">🎥 实时摄像头检测</div>
+        <ul class="feature-list">
+          <li>open/close_camera()：设备控制</li>
+          <li>show_camera_img()：实时推理</li>
+          <li>20ms 低延迟处理</li>
+        </ul>
       </div>
-      <div class="card-footer">
-        <a href="https://github.com/你的用户名/your-resnet-project">查看源码</a>
+      <div class="card-img-container">
+        <img class="card-img" src="assets/camera-detect.png" alt="摄像头检测">
       </div>
     </div>
+
+    <div class="card">
+      <div class="card-body">
+        <div class="card-title">📹 视频处理功能</div>
+        <ul class="feature-list">
+          <li>video_choose()：本地视频选择</li>
+          <li>30fps 逐帧检测</li>
+          <li>支持 MP4/AVI 格式</li>
+        </ul>
+      </div>
+      <div class="card-img-container">
+        <img class="card-img" src="assets/video-detect.png" alt="视频检测">
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <div class="card-title">🌐 网页视频获取</div>
+        <ul class="feature-list">
+          <li>get_bilibili_video()：B站视频下载</li>
+          <li>自动解析视频信息</li>
+          <li>本地存储管理</li>
+        </ul>
+      </div>
+      <div class="card-img-container">
+        <img class="card-img" src="assets/web-video.png" alt="网页视频">
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <div class="card-title">📦 模型管理</div>
+        <ul class="feature-list">
+          <li>choose_detect_model()：动态加载权重</li>
+          <li>支持多种 YOLOv5 变体</li>
+          <li>模型热切换功能</li>
+        </ul>
+      </div>
+      <div class="card-img-container">
+        <img class="card-img" src="assets/model-switch.png" alt="模型管理">
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <div class="card-title">📊 检测分析</div>
+        <ul class="feature-list">
+          <li>plot_detect_information()：统计可视化</li>
+          <li>目标分类计数</li>
+          <li>实时数据更新</li>
+        </ul>
+      </div>
+      <div class="card-img-container">
+        <img class="card-img" src="assets/stats.png" alt="数据分析">
+      </div>
+    </div>
+  </div>
+
+  <div class="source-section">
+    <a href="https://github.com/ouyang2004622/my-ai-projects/tree/main/yolov5_project"
+       class="source-link"
+       target="_blank">
+       查看完整项目源码
+    </a>
   </div>
 </body>
 

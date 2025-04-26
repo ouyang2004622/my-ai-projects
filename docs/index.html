@@ -2,23 +2,98 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>我的AI项目展示</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; }
-    h1 { color: #333; }
-    a { color: #0077cc; text-decoration: none; }
-    .card { background: white; padding: 20px; margin: 10px 0; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+    /* 基础样式 */
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f2f5;
+      color: #333;
+    }
+
+    header {
+      background-color: #0077cc;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: #0077cc;
+      font-size: 1.5em;
+    }
+
+    .card p {
+      font-size: 1em;
+      color: #555;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* 响应式设计 */
+    @media (max-width: 600px) {
+      .card {
+        padding: 20px;
+      }
+
+      header h1 {
+        font-size: 1.5em;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>我的AI项目展示</h1>
-  <div class="card">
-    <h2><a href="yolov5.html">YOLOv5 实时目标检测系统</a></h2>
-    <p>基于 PyTorch 和 YOLOv5，实现图像、摄像头、视频流检测。</p>
-  </div>
-  <div class="card">
-    <h2><a href="resnet.html">AI图片真伪分类系统</a></h2>
-    <p>使用 ResNet50 训练模型，分类真实图像和 AI 生成图像。</p>
+  <header>
+    <h1>我的AI项目展示</h1>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <h2><a href="yolov5.html">YOLOv5 实时目标检测系统</a></h2>
+      <p>基于 PyTorch 和 YOLOv5，实现图像、摄像头、视频流的实时目标检测。</p>
+    </div>
+
+    <div class="card">
+      <h2><a href="resnet.html">AI图片真伪分类系统</a></h2>
+      <p>使用 ResNet50 训练模型，分类区分真实图像与 AI 生成图像。</p>
+    </div>
   </div>
 </body>
 </html>
